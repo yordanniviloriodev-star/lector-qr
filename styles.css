@@ -1,0 +1,332 @@
+/* =====================================================
+   Estilos basados en el portal del MINERD
+   (ministeriodeeducacion.gob.do)
+   ===================================================== */
+
+/* ----- Paleta y medidas del portal ----- */
+:root {
+  --azul-barra: #203C73;     /* barra de navegación */
+  --azul-bloque: #004482;    /* bloques de servicios y botones */
+  --rojo: #DD3444;           /* títulos de sección y acentos */
+  --rojo-boton: #DC3545;     /* botones rojos (Foro, Correo) */
+  --azul-pie: #11244C;       /* pie de página, franja superior */
+  --azul-pie-oscuro: #0A1835;/* pie de página, franja inferior */
+  --fondo: #F9F9F9;          /* fondo del contenido */
+  --texto: #4E4E4E;          /* texto general */
+  --borde: #DCDCDC;          /* bordes de campos */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+.ancho {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ----- Encabezado blanco ----- */
+.encabezado {
+  background: #FFFFFF;
+  border-top: 3px solid #313C4C;   /* línea oscura arriba, como el portal */
+}
+
+.encabezado__fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 196px;
+}
+
+.marca__logo {
+  height: 160px;
+  display: block;
+}
+.marca__logo[hidden] { display: none; }
+
+/* Texto de respaldo si todavía no está el archivo del logo */
+.marca__texto {
+  display: flex;
+  flex-direction: column;
+  color: var(--azul-barra);
+  line-height: 1.15;
+}
+.marca__texto[hidden] { display: none; }
+.marca__gobierno { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.marca__pais { font-size: 18px; text-transform: uppercase; letter-spacing: 1px; }
+.marca__ministerio {
+  margin-top: 6px;
+  padding-top: 4px;
+  border-top: 2px solid var(--rojo);
+  color: var(--rojo);
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Escudo + "REPÚBLICA DOMINICANA" en una sola fila, a la derecha */
+.encabezado__derecha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-top: 56px;
+}
+
+.encabezado__escudo {
+  width: 30px;
+  height: auto;
+}
+.encabezado__escudo[hidden] { display: none; }
+
+.encabezado__pais {
+  font-size: 13px;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #50565A;
+}
+
+/* ----- Barra azul de navegación ----- */
+.barra {
+  background: var(--azul-barra);
+  border-bottom: 2px solid var(--rojo);
+}
+
+.barra__fila {
+  display: flex;
+  align-items: stretch;
+  min-height: 56px;
+}
+
+.barra__item {
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  color: #FFFFFF;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-top: 4px solid transparent;
+}
+
+.barra__item--activo {
+  border-top-color: var(--rojo);
+  font-weight: 700;
+}
+
+.barra__boton {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background: var(--rojo-boton);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ----- Franja de título con la imagen de contexto ----- */
+.portada {
+  padding: 36px 0;
+  color: #FFFFFF;
+  background-image:
+    linear-gradient(rgba(32, 60, 115, 0.88), rgba(0, 68, 130, 0.88)),
+    url("img/fondo-educacion.svg");
+  background-size: cover, 240px 240px;
+  background-repeat: no-repeat, repeat;
+}
+
+.portada h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.portada p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/* ----- Contenido ----- */
+.contenido {
+  padding-top: 28px;
+  padding-bottom: 40px;
+}
+
+.titulo-seccion {
+  margin: 0 0 20px;
+  color: var(--rojo);
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.rejilla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tarjeta {
+  background: #FFFFFF;
+  border-top: 4px solid var(--azul-bloque);
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta h3 {
+  margin: 0 0 14px;
+  color: var(--azul-bloque);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tarjeta h4 {
+  margin: 18px 0 6px;
+  color: var(--azul-barra);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--texto);
+  background: #FDFDFD;
+  border: 1px solid var(--borde);
+  border-radius: 2px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--azul-bloque);
+  box-shadow: 0 0 0 3px rgba(0, 68, 130, 0.15);
+}
+
+#lector {
+  width: 100%;
+  min-height: 40px;
+  margin-bottom: 14px;
+  background: #F1F3F6;
+}
+
+/* ----- Botones (mayúsculas y negrita, como en el portal) ----- */
+.botones {
+  display: flex;
+  gap: 10px;
+}
+
+.boton {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 2px;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.boton--azul { background: var(--azul-bloque); }
+.boton--azul:hover { background: var(--azul-barra); }
+.boton--rojo { background: var(--rojo-boton); }
+.boton--rojo:hover { background: #B82A38; }
+
+.boton:disabled {
+  background: #A9AFB8;
+  cursor: not-allowed;
+}
+
+#estado {
+  margin: 12px 0 0;
+  font-size: 14px;
+}
+
+#historial {
+  margin: 0;
+  padding-left: 20px;
+  font-family: Consolas, monospace;
+  font-size: 14px;
+}
+
+/* ----- Pie de página ----- */
+.pie__superior {
+  background: var(--azul-pie);
+  padding: 32px 0;
+  border-bottom: 1px solid var(--rojo);
+}
+
+.pie__columnas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.pie__superior h5 {
+  margin: 0 0 8px;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pie__superior p {
+  margin: 0;
+  color: #BED1DC;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.pie__inferior {
+  background: var(--azul-pie-oscuro);
+  padding: 18px 16px;
+  text-align: center;
+}
+
+.pie__inferior p {
+  margin: 2px 0;
+  color: #BED1DC;
+  font-size: 12px;
+}
+
+/* ----- Celular y tableta ----- */
+@media (max-width: 768px) {
+  .rejilla,
+  .pie__columnas {
+    grid-template-columns: 1fr;
+  }
+  .encabezado__derecha { display: none; }
+  .marca__logo { height: 100px; }
+  .encabezado__fila { min-height: 130px; }
+  .barra__item:not(.barra__item--activo) { display: none; }
+  .portada h1 { font-size: 24px; }
+}

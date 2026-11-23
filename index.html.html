@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo Lector QR de Cédula | Ministerio de Educación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO: logo a la izquierda, país a la derecha (igual que el portal del MINERD) -->
+  <header class="encabezado">
+    <div class="ancho encabezado__fila">
+      <div class="marca">
+        <img src="img/logo-minerd.png" alt="Ministerio de Educación de la República Dominicana"
+             class="marca__logo" onerror="this.hidden = true; this.nextElementSibling.hidden = false;">
+        <div class="marca__texto" hidden>
+          <span class="marca__gobierno">Gobierno de la</span>
+          <span class="marca__pais">República Dominicana</span>
+          <span class="marca__ministerio">Educación</span>
+        </div>
+      </div>
+      <div class="encabezado__derecha">
+        <img src="img/escudo-rd.png" alt="" class="encabezado__escudo"
+             onerror="this.hidden = true;">
+        <span class="encabezado__pais">República Dominicana</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- BARRA AZUL: el módulo aparece como la pestaña activa -->
+  <nav class="barra">
+    <div class="ancho barra__fila">
+      <span class="barra__item barra__item--activo">Lector QR de cédula</span>
+      <span class="barra__boton">Módulo interno</span>
+    </div>
+  </nav>
+
+  <!-- FRANJA DE TÍTULO: azul semitransparente sobre la imagen de contexto -->
+  <section class="portada">
+    <div class="ancho">
+      <h1>Módulo de lectura QR de cédula</h1>
+      <p>Escanee el código QR del reverso de la cédula con la cámara o con un lector externo.</p>
+    </div>
+  </section>
+
+  <main class="ancho contenido">
+    <h2 class="titulo-seccion">Lectura de cédula</h2>
+
+    <div class="rejilla">
+      <!-- 1. Zona de la cámara -->
+      <section class="tarjeta">
+        <h3>1. Escanear código</h3>
+        <div id="lector"></div>
+        <div class="botones">
+          <button id="btnIniciar" class="boton boton--azul">Iniciar cámara</button>
+          <button id="btnDetener" class="boton boton--rojo" disabled>Detener cámara</button>
+        </div>
+        <p id="estado">Cámara apagada</p>
+      </section>
+
+      <div class="columna">
+        <!-- 2. Texto completo leído del QR (cámara o lector externo) -->
+        <section class="tarjeta">
+          <h3>2. Texto leído</h3>
+          <form id="formLector">
+            <label for="inputLeido">Contenido completo del QR (cámara o lector externo)</label>
+            <input type="text" id="inputLeido" autocomplete="off"
+                   placeholder="Haga clic aquí y escanee con el lector externo" autofocus>
+          </form>
+        </section>
+
+        <!-- 3. Segundo input: cédula sin guiones + Alt+013 (Enter) -->
+        <section class="tarjeta">
+          <h3>3. Cédula extraída</h3>
+          <form id="formDestino">
+            <label for="inputDestino">Número de cédula sin guiones (+ Alt+013)</label>
+            <input type="text" id="inputDestino" maxlength="11">
+          </form>
+          <h4>Historial de lecturas</h4>
+          <ul id="historial"></ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- PIE DE PÁGINA: dos franjas azul oscuro, como el portal -->
+  <footer>
+    <div class="pie__superior">
+      <div class="ancho pie__columnas">
+        <div>
+          <h5>Sobre este módulo</h5>
+          <p>Lee el QR de la cédula y envía el número sin guiones al sistema con Alt+013 (Enter).</p>
+        </div>
+        <div>
+          <h5>Entradas admitidas</h5>
+          <p>WebCam, cámara del dispositivo y lector QR externo (USB o Bluetooth).</p>
+        </div>
+        <div>
+          <h5>Privacidad</h5>
+          <p>Las lecturas no se guardan: el historial se borra al recargar la página.</p>
+        </div>
+      </div>
+    </div>
+    <div class="pie__inferior">
+      <p>Ministerio de Educación de la República Dominicana · Departamento de Tecnología</p>
+      <p>Módulo de uso interno · 2026</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
